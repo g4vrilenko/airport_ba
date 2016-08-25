@@ -1,16 +1,1 @@
-Aer Lingus
-Aeroflot Russian Airlines
-Air Berlin Group
-Air France KLM
-Alitalia
-Austrian Airlines Group
-British Airways
-easyJet
-Lufthansa
-Norwegian Air Shuttle
-Ryanair
-SAS Scandinavian Airlines
-Swiss
-Thomson Airways
-Turkish Airlines
-Vueling Airlines
+Aer Lingus;Aeroflot Russian Airlines;Air Berlin Group;Air France KLM;Alitalia;Austrian Airlines Group;British Airways;easyJet;Lufthansa;Norwegian Air Shuttle;Ryanair;SAS Scandinavian Airlines;Swiss;Thomson Airways;Turkish Airlines;Vueling Airlines;

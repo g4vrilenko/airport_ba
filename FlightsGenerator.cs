@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.IO;
 using System.Reflection;
 
@@ -9,14 +10,10 @@ namespace Airport
 		private string[] _cities;
 		private string[] _airlines;
 		public static int[] Terminals = { 5, 7, 12, 6, 9, 11, 1, 3 };
-		private readonly string _path = @"data\flights";
 		private readonly DateTime _currentTime;
 		private Random _rand = new Random();
 		public FlightsGenerator()
 		{
-			string cwd = Assembly.GetExecutingAssembly().Location;
-			string solutionPath = cwd.Replace("\\bin\\Debug\\Airport.exe", "");
-			_path = solutionPath + "\\data";
 			LoadData();
 			_currentTime = DateTime.Now;
 		}
@@ -99,8 +96,15 @@ namespace Airport
 		{
 			try
 			{
-				_cities = File.ReadAllLines(_path + "\\cities.txt");
-				_airlines = File.ReadAllLines(_path + "\\airlines.txt");
+				using (var reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(ConfigurationManager.AppSettings["airlines"])))
+				{
+					_airlines = reader.ReadToEnd().Split(';');
+
+				}
+				using (var reader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(ConfigurationManager.AppSettings["cities"])))
+				{
+					_cities = reader.ReadToEnd().Split(';');
+				}
 			}
 			catch (Exception e)
 			{
